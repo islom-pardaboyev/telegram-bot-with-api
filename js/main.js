@@ -58,6 +58,7 @@ function getSingleUser(id) {
             chat_id: CHAT_ID,
             photo: res.data.data.avatar,
             caption: message
+            parse_mode: "HTML"
         }).then(res => {
             console.log(res);
         });

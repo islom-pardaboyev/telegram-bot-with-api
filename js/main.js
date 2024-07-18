@@ -15,7 +15,6 @@ function getUsers() {
             `;
             elUserList.append(div);
 
-            // Event listener for "More Btn"
             div.querySelector('.more-btn').addEventListener('click', () => showModal(item));
         });
     });

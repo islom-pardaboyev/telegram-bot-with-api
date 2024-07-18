@@ -49,14 +49,13 @@ let URL = `https://api.telegram.org/bot${TOKEN}`;
 
 function getSingleUser(id) {
     axios.get(`https://reqres.in/api/users/${id}`).then(res => {
-        let message = `<b>Sit Order</b>\n`;
-        message += `<b>Full Name: ${res.data.data.first_name} ${res.data.data.last_name}</b>\n`;
-        message += `<b>Email: ${res.data.data.email}</b>\n`;
+        let message = `Sit Order\n`;
+        message += `Full Name: ${res.data.data.first_name} ${res.data.data.last_name}\n`;
+        message += `Email: ${res.data.data.email}\n`;
 
         // Send the photo
         axios.post(`${URL}/sendPhoto`, {
             chat_id: CHAT_ID,
-            parse_mode: "HTML"
             photo: res.data.data.avatar,
             caption: message
         }).then(res => {

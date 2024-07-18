@@ -53,20 +53,11 @@ function getSingleUser(id) {
         message += `<b>Full Name: ${res.data.data.first_name} ${res.data.data.last_name}</b>\n`;
         message += `<b>Email: ${res.data.data.email}</b>\n`;
 
-        // Send the text message
-        axios.post(`${URL}/sendMessage`, {
-            chat_id: CHAT_ID,
-            parse_mode: "HTML",
-            text: message
-        }).then(res => {
-            console.log(res);
-        });
-
         // Send the photo
         axios.post(`${URL}/sendPhoto`, {
             chat_id: CHAT_ID,
             photo: res.data.data.avatar,
-            caption: `${res.data.data.first_name} ${res.data.data.last_name}`
+            caption: message
         }).then(res => {
             console.log(res);
         });

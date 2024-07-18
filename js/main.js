@@ -56,6 +56,7 @@ function getSingleUser(id) {
         // Send the photo
         axios.post(`${URL}/sendPhoto`, {
             chat_id: CHAT_ID,
+            parse_mode: "HTML"
             photo: res.data.data.avatar,
             caption: message
         }).then(res => {
